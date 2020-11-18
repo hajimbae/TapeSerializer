@@ -58,7 +58,7 @@ beforestartbeat = binascii.unhexlify(str.encode("00000000"))
 
 videostarttime = binascii.unhexlify(str.encode("00000000"))
 
-aftervideo = binascii.unhexlify(str.encode("00000000"))
+aftervideo = binascii.unhexlify(str.encode("0000000000000000000000000000000000000000"))
 
 # codename.wav
 wavname = codename + ".wav"
@@ -82,11 +82,14 @@ print(wavpath_length)
 wavname_crc32 = zlib.crc32(wavname.encode('utf-8')).to_bytes(4, 'little')
 print(wavname_crc32)
 
+# useless between endbeat and videostarttime
+useless2 = binascii.unhexlify(str.encode("00000000000000000000"))
+
 # useless ending
 msc_end = binascii.unhexlify(str.encode("0000000000000000"))
 print(msc_end)
 
-everything_together = msc_start + msc_markers_length_tohex + msc_markers_tohex + msc_signatures_sections + beforestartbeat + startbeat + endbeat + videostarttime + aftervideo + wavname_length + wavname_tohex + wavpath_length + wavpath_tohex + wavname_crc32 + msc_end
+everything_together = msc_start + msc_markers_length_tohex + msc_markers_tohex + msc_signatures_sections + beforestartbeat + startbeat + endbeat + useless2 + videostarttime + aftervideo + wavname_length + wavname_tohex + wavpath_length + wavpath_tohex + wavname_crc32 + msc_end
 
 print(everything_together)
 
