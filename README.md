@@ -38,4 +38,4 @@ For major changes, please open an issue first to discuss what you would like to 
 If you have any other issues, you can join our [Discord server](https://discord.gg/sbRQdVK).
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+[Polyform Strict](https://polyformproject.org/licenses/strict/1.0.0/)
